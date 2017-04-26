@@ -1,0 +1,22 @@
+{
+  "name": "webpack-learn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config mywebpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenyi-sun/webpack-learn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenyi-sun/webpack-learn/issues"
+  },
+  "homepage": "https://github.com/chenyi-sun/webpack-learn#readme",
+  "devDependencies": {
+    "webpack": "^2.4.1"
+  }
+}
