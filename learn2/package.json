@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "path": "^0.12.7",
     "webpack": "^2.4.1"
   },
   "dependencies": {
     "lodash": "^4.17.4"
   }
 }
+/*npm run build*/
