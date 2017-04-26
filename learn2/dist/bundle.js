@@ -17166,11 +17166,13 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+throw new Error("Cannot find module \"../style/index.less\"");
+
 
 function component(){
     var div = document.createElement('div');
-    div.innerHTML = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(['Hello','webpack'], '');
-    alert('ssss');
+    div.innerHTML = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(['Hello','webpacks'], '');
+    alert('ssssss');
     return div;
 }   
 document.body.appendChild(component());
