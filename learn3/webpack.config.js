@@ -1,16 +1,15 @@
 'use strict';
+var autoprefixer = require('autoprefixer');
 
-const webpack = require("webpack");
-
-module.exports = {
-    context: __dirname + '/src',
+let export_build = {
+    // context: __dirname + '/src',
     entry: {
-        index: "./index.js",
-        describe: "./describe.js"
+        index: __dirname + "/app/main.js",
+        // describe: "./describe.js"
     },
     output: {
-        path: __dirname + '/index/dist',
-        filename: '[name].bundle.js',
+        path: __dirname + '/public',
+        filename: 'bundle.js',
     },
     module:{
         rules: [
@@ -19,20 +18,33 @@ module.exports = {
                 use: [{
                     loader: "babel-loader",
                     options: {
-                        presets:["es2015"]
+                        presets:["es2015"],
                     }
                 }]
-            }
-        ]
+            },
+            {
+               test: /\.less$/,
+               use: ["style-loader","css-loader","less-loader"],
+            },
+            {
+               test: /\.css$/,
+               use: ["style-loader","css-loader","postcss"],
+            },
+            {
+                test:/\.html$/,
+                use: ["html-loader"],
+            },
+            {
+               test: /\.(sass|scss)$/,
+               use: ["style-loader","css-loader","sass-loader"],
+            },
+        ],
     },
-    plugins: [
-         new webpack.optimize.CommonsChunkPlugin({
-            name: "commons",
-            filename: "commons.js",
-            minChunks: 2,
-        }),
-    ],
     devServer: {
-        contentBase: __dirname + '/index'
-    }
+        contentBase: "./public",//本地服务器所加载的页面所在的目录
+        historyApiFallback: true,//不跳转
+        inline: true//实时刷新
+     } 
 }
+
+module.exports = export_build;
