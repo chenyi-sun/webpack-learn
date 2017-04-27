@@ -1,5 +1,6 @@
 'use strict';
 var autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 let export_build = {
     // context: __dirname + '/src',
@@ -28,7 +29,7 @@ let export_build = {
             },
             {
                test: /\.css$/,
-               use: ["style-loader","css-loader","postcss"],
+               use: ["style-loader","css-loader","postcss-loader"],
             },
             {
                 test:/\.html$/,
