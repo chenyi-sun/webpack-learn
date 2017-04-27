@@ -46,9 +46,8 @@ if(process.env.NODE_ENV === 'production'){
                 // use: ["style-loader","css-loader","sass-loader"],
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: ["css-loader", "sass-loader"]
+                    use: ["css-loader", "less-loader"]
                     }),
-                },
                 },
             ],
         },
