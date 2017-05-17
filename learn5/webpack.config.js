@@ -1,4 +1,5 @@
 'use strict';
+//http://www.duanliang920.com/learn/web353.html
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,11 +9,12 @@ if(process.env.NODE_ENV === 'production'){
         // context: __dirname + '/src',
         entry: {
             index: __dirname + "/app/main.js",
+            hello: __dirname + "/app/hello.js",
             // describe: "./describe.js"
         },
         output: {
             path: __dirname + '/public',
-            filename: 'bundle.js',
+            filename: '[name].[hash:2].js',
         },
         module:{
             rules: [
@@ -58,7 +60,7 @@ if(process.env.NODE_ENV === 'production'){
                 allChunks: true,
             }),
             new HtmlWebpackPlugin({
-              template:'index.html',
+              template:'./pages/index.html',
               inject: 'body',
             }),
         ],
@@ -111,7 +113,7 @@ if (process.env.NODE_ENV === 'dev'){
             ],
         },
         devServer: {
-            // contentBase: "./public",//本地服务器所加载的页面所在的目录
+            contentBase: "./pages",//本地服务器所加载的页面所在的目录
             historyApiFallback: true,//不跳转
             inline: true//实时刷新
         },
