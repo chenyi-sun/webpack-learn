@@ -4,7 +4,7 @@ import './main.css';
 // document.getElementById('root').appendChild(greeter());
 // let sjj = "sjsjsjsjss";
 // console.log(sjj);
-import "./jquery-1.8.1.js";
+import "";
 'use strict';
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
