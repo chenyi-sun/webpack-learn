@@ -63,43 +63,23 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function () {
-  var greet = document.createElement('div');
-  greet.textContent = "Hi theressssss and gressetings kkkkk!";
-  return greet;
-};
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(1);
-
-var greeter = __webpack_require__(0);
-// import './main.css';
-
-document.getElementById('root').appendChild(greeter());
-var sjj = "sjsjsjsj";
-console.log(sjj);
+__webpack_require__(0);
 
 /***/ })
 /******/ ]);

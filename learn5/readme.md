@@ -1,4 +1,6 @@
 在3的基础上将less,css单独打包<br/>
+在4的基础上将public的index.html自动生成<br/>
+在4的基础上添加了css,sass的前缀补全
 
 编译es6<br/>
 生成静态文件<br/>
