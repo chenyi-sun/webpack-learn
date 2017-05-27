@@ -9,7 +9,7 @@ if(process.env.NODE_ENV === 'production'){
         // context: __dirname + '/src',
         entry: {
             index: __dirname + "/app/main.js",
-            hello: __dirname + "/app/hello.js",
+            // hello: __dirname + "/app/hello.js",
             // describe: "./describe.js"
         },
         output: {
@@ -52,6 +52,10 @@ if(process.env.NODE_ENV === 'production'){
                     use: ["css-loader","postcss-loader", "less-loader"]
                     }),
                 },
+                {
+                    test: /\.(png|jpg|gif|svg)$/,
+                    use: ['file-loader'],
+                }  
             ],
         },
         plugins: [
@@ -60,7 +64,7 @@ if(process.env.NODE_ENV === 'production'){
                 allChunks: true,
             }),
             new HtmlWebpackPlugin({
-              template:'./pages/index.html',
+              template:'index.html',
               inject: 'body',
             }),
         ],
@@ -109,11 +113,15 @@ if (process.env.NODE_ENV === 'dev'){
                 {
                 test: /\.(sass|scss)$/,
                 use: ["style-loader","css-loader","postcss-loader","sass-loader"],
-                },
+             },
+             {
+                test: /\.(png|jpg|gif|svg)$/,
+                use: ['file-loader'],
+             }
             ],
         },
         devServer: {
-            contentBase: "./pages",//本地服务器所加载的页面所在的目录
+            // contentBase: "./pages",//本地服务器所加载的页面所在的目录
             historyApiFallback: true,//不跳转
             inline: true//实时刷新
         },
