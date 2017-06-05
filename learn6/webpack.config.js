@@ -4,6 +4,7 @@ var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 let export_build;
+console.log(__dirname);
 if(process.env.NODE_ENV === 'production'){
    export_build = {
         // context: __dirname + '/src',
