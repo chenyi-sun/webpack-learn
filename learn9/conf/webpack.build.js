@@ -13,13 +13,15 @@ const allHtml = htmlFile.map((item) =>
         filename: path.basename(item),
         template: item,
         minify: false,
-        // chunks: ['vendors', path.basename(item,'.js')]
+        // inject: {
+        //     body: true
+        // },
+        chunks: [path.basename(item).slice(0,-5)]
     })
 );
-
 export_build = merge(webpackBase, {
     plugins: [
-        ...allHtml,
+         ...allHtml,
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             compress: {
@@ -27,18 +29,7 @@ export_build = merge(webpackBase, {
                 drop_console: true,
             },
         }),
-        // new HtmlWebpackPlugin({
-        //    filename: 'index.html',
-        //    minify: false,
-        // }),
-        //查看HtmlWebpackPlugin其他配置http://www.cnblogs.com/wonyun/p/6030090.html
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'vendors', // 将公共模块提取，生成名为`vendors`的chunk
-        //     chunks: ['index','second'], //提取哪些模块共有的部分
-        //     minChunks: 3 // 提取至少3个模块共有的部分
-        // }),
-         new ExtractTextWebpackPlugin('./css/[name].[contenthash].css'),
-        
+        new ExtractTextWebpackPlugin('./css/[name].[contenthash].css')
     ]
 });
 module.exports = export_build;

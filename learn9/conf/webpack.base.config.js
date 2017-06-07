@@ -39,7 +39,7 @@ var devSet= {
         path: envirParm==="dev"?path.join(__dirname,'./../app/html'):path.join(__dirname,'./../Public'),//dev构建时候main.js都输出到了html文件夹下,打包以后就输出到Public的script下
         // path: envirParm==="dev"?'/':'/',
         filename: "script/[name].js",//js的相对于path的路径写在这里
-        chunkFilename: "script/[name].chunk.js",
+        // chunkFilename: "script/[name].chunk.js",
     },
     module: {
         rules: [
