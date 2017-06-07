@@ -19,6 +19,7 @@ const allHtml = htmlFile.map((item) =>
 
 export_build = merge(webpackBase, {
     plugins: [
+        ...allHtml,
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             compress: {
@@ -37,7 +38,7 @@ export_build = merge(webpackBase, {
         //     minChunks: 3 // 提取至少3个模块共有的部分
         // }),
          new ExtractTextWebpackPlugin('./css/[name].[contenthash].css'),
-        ...allHtml,
+        
     ]
 });
 module.exports = export_build;
