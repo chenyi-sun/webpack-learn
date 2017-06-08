@@ -7,6 +7,8 @@ const glob = require("glob");
 let export_build;
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const htmlFile = glob.sync('./app/html/*.html');//取的是learn9的文件路径
+// const extractCSS = new ExtractTextPlugin('stylesheets/[name]-one.css');
+
 
 const allHtml = htmlFile.map((item) => 
     new HtmlWebpackPlugin({
@@ -29,7 +31,7 @@ export_build = merge(webpackBase, {
                 drop_console: true,
             },
         }),
-        new ExtractTextWebpackPlugin('./css/[name].[contenthash].css')
+        new ExtractTextWebpackPlugin('./css/[name].[contenthash].css'),
     ]
 });
 module.exports = export_build;

@@ -1,6 +1,6 @@
 console.log("sss");
 console.log("sssddd");
-require('./../css/main.css');
+require('./../css/main.scss');
 
 function change(paremary){
     this.name = "ss";

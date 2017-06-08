@@ -1,8 +1,11 @@
+//图片显示，重复代码抽出
+//html里面原来的script不要放进去，删除
 const path = require("path")
 const webpack = require('webpack');
 var envirParm =  process.env.NODE_ENV;
 const glob = require('glob');
 const entrys = {};
+const autoprefixer = require('autoprefixer');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 const jsFiles = glob.sync('./app/script/*.js');
@@ -11,21 +14,117 @@ jsFiles.map((item)=>{
     entrys[path.basename(item,'.js')] = path.join(__dirname, item);
     }
 );
-console.log(entrys);
+
 const cssLoader = envirParm==="dev"? {
     test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                ],
+            use: [
+                'style-loader',
+                'css-loader',
+                {
+                    loader: "postcss-loader",
+                     options: {
+                        plugins: function() {
+                            return [
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
+                }
+            ],
 }:
- {
+{
         test: /\.css$/,
         loader: ExtractTextWebpackPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader',
+          use: ['css-loader',
+                {
+                loader: "postcss-loader",
+                    options: {
+                    plugins: function() {
+                        return [
+                            require('autoprefixer')
+                        ];
+                    }
+                }
+            }]
         }),
 }
+
+const sassLoader = envirParm==="dev"?{
+    test: /\.scss$/,
+    use: [
+        'style-loader',
+        'css-loader',
+        {
+            loader: "postcss-loader",
+                options: {
+                plugins: function() {
+                    return [
+                        require('autoprefixer')
+                    ];
+                }
+            }
+        },
+        'sass-loader',
+    ],
+}:{
+     test: /\.scss$/,
+     loader: ExtractTextWebpackPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+        'css-loader',
+         {
+            loader: "postcss-loader",
+                options: {
+                plugins: function() {
+                    return [
+                        require('autoprefixer')
+                    ];
+                }
+            }
+        },
+        'sass-loader',
+    ],
+  })
+};
+const lessLoader = envirParm==="dev"?{
+      test: /\.less$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                     {
+                        loader: "postcss-loader",
+                            options: {
+                            plugins: function() {
+                                return [
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    },
+                    'less-loader',
+                ],
+}:{
+    test: /\.less$/,
+    loader: ExtractTextWebpackPlugin.extract({
+                   fallback: 'style-loader',
+                   use: [
+                    'css-loader',
+                     {
+                        loader: "postcss-loader",
+                            options: {
+                            plugins: function() {
+                                return [
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    },
+                    'less-loader',
+                ],
+    })
+};
+
 
 var devSet= {
     entry: {
@@ -51,26 +150,12 @@ var devSet= {
                 exclude: /node_module/,
             },//es6编译至es5
             cssLoader,//引用css文件编译
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
-                ],
-            },//编译sass
-            {
-                test: /\.less$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'less-loader',
-                ],
-            },//编译less
+            sassLoader,//编译sass
+            lessLoader,//编译less
             {
                 test: /\.(jpg|jpeg|png|gif)$/,
                 use: [{
-                    loader: 'url-loader',
+                    loader: 'html-loader',
                     options: {
                         mimetype: 'image/png',
                     },
@@ -87,7 +172,8 @@ var devSet= {
                 }],
             },
             ]
-    }
+    },
+    // postcss:[autoprefixer({browsers:['last 2 versions']})]
 }
 console.log(devSet.output.filename);
 module.exports = devSet;

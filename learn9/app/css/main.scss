@@ -1,3 +1,7 @@
 body{
-    background: green;
+    background: red;
+    .s{
+        width: 200px;
+        transform: rotate(35deg);
+    }
 }
