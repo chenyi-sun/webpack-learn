@@ -1,4 +1,3 @@
-//图片显示，重复代码抽出
 //html里面原来的script不要放进去，删除
 const path = require("path")
 const webpack = require('webpack');
@@ -152,13 +151,14 @@ var devSet = {
             cssLoader,//引用css文件编译
             sassLoader,//编译sass
             lessLoader,//编译less
-            {
-                test: /\.jpg$/,
-                loader: "file-loader"
-            },
             { 
-                test: /\.png$/,
-                loader: "url-loader?mimetype= image/png" },
+                test: /\.(png|jpe?g|gif|svg|jpg)(\?.*)?$/,
+                loader: "url-loader?mimetype=image/png",
+                options: {
+                   limit: 10000,
+        　　　　　　name: "img/[name].[hash:7].[ext]"
+                },
+            },
             {
                 test: /\.svg/,
                 use: [{
@@ -168,6 +168,13 @@ var devSet = {
                         noquotes: true,
                     },
                 }],
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                limit: 10000
+                }
             },
         ]
     },

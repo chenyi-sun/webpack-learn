@@ -10,7 +10,7 @@ if(process.env.NODE_ENV === 'production'){
         // context: __dirname + '/src',
         entry: {
             index: __dirname + "/app/main.js",
-            hello: __dirname + "/app/hello.js",
+            // hello: __dirname + "/app/hello.js",
             // describe: "./describe.js"
         },
         output: {
