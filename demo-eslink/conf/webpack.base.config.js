@@ -141,14 +141,11 @@ var devSet = {
     },
     module: {
         rules: [
-             {
-                    test: /\.vue$/,
-                    use: ['vue'],
-            },
             {
                 test: /\.js(x)?$/,
                 use: [
                     'babel-loader',
+                    'eslint-loader'
                 ],
                 exclude: /node_module/,
             },//es6编译至es5
@@ -181,12 +178,6 @@ var devSet = {
                 }
             },
         ]
-    },
-    resolve: {
-        alias: {
-            // 'vue': 'vue/dist/vue.js'
-            'vue': 'vue/dist/vue.common.js'
-        }
     },
 }
 console.log(devSet.output.filename);

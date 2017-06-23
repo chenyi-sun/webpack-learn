@@ -2,7 +2,7 @@
 const merge = require("webpack-merge");
 const webpackBase = require("./webpack.base.config.js");
 let export_build;
-const webpack = require('webpack');
+
 
 export_build =merge({
     devServer: {
@@ -12,17 +12,6 @@ export_build =merge({
         open: true,//自动打开
         // hot: true,//热加载
     } 
-},webpackBase,{
-     plugins: [
-         new webpack.LoaderOptionsPlugin({
-            vue: {
-                    loaders: {
-                        sass: 'style-loader!css-loader!postcss-loader!sass-loader?indentedSyntax',
-                        scss: 'style-loader!css-loader!postcss-loader!sass-loader',
-                    },
-            }
-         })
-     ]
-})
+},webpackBase)
     
 module.exports = export_build;

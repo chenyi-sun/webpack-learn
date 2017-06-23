@@ -1,0 +1,6 @@
+body {
+  background: red; }
+  body .s {
+    width: 200px;
+    -webkit-transform: rotate(35deg);
+            transform: rotate(35deg); }
