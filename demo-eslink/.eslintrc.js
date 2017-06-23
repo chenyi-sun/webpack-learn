@@ -25,7 +25,13 @@ module.exports = {
             "always"
         ],
         "no-console": "off",
-        "no-useless-escape": "off"
+        "no-useless-escape": "off",
+        "no-const-assign": "off",//不准更改const固定变量的值
+        "no-multiple-empty-lines": [
+            "error"
+            , {"max": 2}],//不准空行多于2行
+        "no-use-before-define": "error"//不可以使用未定义的变量，必须先定义再使用,
+        
     },
     "globals":{
         "document": true
