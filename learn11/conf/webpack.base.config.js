@@ -31,7 +31,7 @@ module.exports = {
                 test: /\.js(x)?$/,
                 use: [
                     'babel-loader',
-                    eslintLoader,
+                     eslintLoader,
                 ],
                 exclude: /node_module/,
             },
@@ -39,7 +39,7 @@ module.exports = {
                 test: /\.vue$/,
                 use: [
                     'vue-loader',
-                    eslintLoader,
+                     eslintLoader,
                 ],
             },
             {

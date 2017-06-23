@@ -142,8 +142,8 @@ var devSet = {
     module: {
         rules: [
              {
-                    test: /\.vue$/,
-                    use: ['vue'],
+                test: /\.vue$/,
+                loader: 'vue-loader'
             },
             {
                 test: /\.js(x)?$/,
@@ -152,9 +152,9 @@ var devSet = {
                 ],
                 exclude: /node_module/,
             },//es6编译至es5
-            cssLoader,//引用css文件编译
-            sassLoader,//编译sass
-            lessLoader,//编译less
+                cssLoader,//引用css文件编译
+                sassLoader,//编译sass
+                lessLoader,//编译less
             { 
                 test: /\.(png|jpe?g|gif|svg|jpg)(\?.*)?$/,
                 loader: "url-loader?mimetype=image/png",
@@ -184,8 +184,8 @@ var devSet = {
     },
     resolve: {
         alias: {
-            // 'vue': 'vue/dist/vue.js'
-            'vue': 'vue/dist/vue.common.js'
+            'vue': 'vue/dist/vue.js'
+            // 'vue': 'vue/dist/vue.common.js'
         }
     },
 }

@@ -1,18 +1,25 @@
 <template>
-<div id = "app">{{warm}}</div>
+    <div id="example">
+        <h1>{{ msg }}</h1>
+        <ul>
+            <li v-for="n in 5">{{ n }}</li>
+        </ul>
+    </div>
 </template>
+
 <script>
 export default {
-  name: 'app',
-  data() {
-    return  {
-      warm: '错误',
+    data () {
+        return {
+            msg: 'Hello World!'
+        }
     }
-  },
-  methods: {
-
-  }
 }
 </script>
-<style lang="scss">
+
+<style scoped>
+#example {
+    background: red;
+    height: 100vh;
+}
 </style>
