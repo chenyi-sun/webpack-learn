@@ -1,5 +1,5 @@
-var imgs = document.getElementsByTagName('img');
-var imgLength = imgs.length;
+let imgs = document.getElementsByTagName('img');
+let imgLength = imgs.length;
 
 let setImg = function(){
 	function setImg(item){
@@ -15,6 +15,6 @@ let setImg = function(){
 }();
 
 for(let i = 0; i < imgLength; i++ ){
-	var all = new setImg(imgs[i]);
+	let all = new setImg(imgs[i]);
 	all.set();
 }
