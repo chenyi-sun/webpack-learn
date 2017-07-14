@@ -1,1 +1,2 @@
 将js文件，css文件等放到小文件夹下，webpack的配置独立存放。cross nov可以跨域通信
+完整版
