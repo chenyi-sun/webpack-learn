@@ -7,6 +7,10 @@ let setImg =  function(){
     }
     setImg.prototype.set = function(){
         let src = this.img.getAttribute("imgsrc");
+        let s = this.img.getAttribute("s")||0;
+        if(s=="no"){
+            return;
+        }
         let filename = src.match(/[^\/]*.(png|jpg)/)[0].slice(0,-4);
         let fileEnd = src.match(/[^\/]*.(png|jpg)/)[0].match(/\..*/)[0];
         this.img.src  = require("./../imgs/"+filename+ fileEnd)
