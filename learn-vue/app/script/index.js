@@ -31,9 +31,37 @@ import Apps from './../components/App.vue'
         el: '#app',
         data: {
            sss: 'ssss',
+           all: {
+               'ss': false
+           },
+           len: 10,
+           kk: [
+               'ss','ssss'
+           ]
         },
         components: {
             'Apps': Apps
-        }
+        },
+        methods:{
+            click(){
+                var vm = this;
+                this.len = this.len + 1;
+                var i = 0;
+                vm.kk.push('sss'+this.len);
+                for(var item in vm.kk){
+                    console.log('222'+item);
+                    vm.all['ss'+item] = false;
+                     i = i+1;
+                }
+                console.log(this.all['ss0']);
+            },
+            check(item){
+                console.log(item);
+                this.all[item] = !this.all[item];
+            },
+            push(){
+                console.log(this.all);
+            }
+        },
     });
 

@@ -9,8 +9,10 @@
 </head>
 <body>
     <div id="app">
-        {{sss}}
-        <!--<apps></apps>-->
+        <div>{{len}}</div>
+        <div v-on:click="click">check</div>
+        <input v-for="(item,index,key) in all" v-on:click="check(index)" v-model="item"/>
+        <div v-on:click="push()">push</div>
     </div>
     <a href="./second.html">sss</a>
     <br/>
