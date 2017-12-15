@@ -1,0 +1,74 @@
+$topleft : 10px;  
+#app{
+    .header{
+        width: 100%;
+        height: 50px;
+        // background: white;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        display: block;
+        // max-width: 430px;
+        &:after{
+            height: 100%;
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .search{
+            width: calc(100% - 120px);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 6px 4px;
+            padding-left: 24px;
+            background: rgba(255,255,255,0.7);
+            border: none;
+            display: inline-block;
+            border-radius: 3px;
+            font-size: 16px;
+            .menu{
+                width: auto;
+                height: auto;
+                position: absolute;
+
+            }
+        }
+        .left{
+            position: relative;
+            margin-left: $topleft;
+            font-size: 27px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .right{
+            width: auto;
+            height: 100%;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+             &:after{
+                height: 100%;
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .shop{
+                position: relative;
+                font-size: 27px;
+                display: inline-block;
+                vertical-align: middle;
+                right: $topleft;
+            }
+        }
+    }
+    .slider{
+        width: 100%;
+        height: 400px;
+        background: red;
+        position: relative;
+        // margin-top: 70px;
+    }
+}
