@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require('path');
 const init = require('./define.config');
+const merge = require('webpack-merge');
 
 module.exports = {
     mode: 'development',
