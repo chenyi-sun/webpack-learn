@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1 dev2 打开热加载 build2 打包文件",
     "dev": "webpack --mode development",
+    "dev2": "webpack-dev-server --mode=development  --config config/webpack.config.js",
     "build": "webpack --mode production",
-    "build2": "webpack --mode=production --config config/webpack.config.js"
+    "build2": "webpack --mode=production --config config/webpack.config.js",
+    "hots": "webpack-dev-server --mode development --open"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "lodash": "^4.17.5",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2"
   }
 }

@@ -4,7 +4,7 @@ const webpackBase = require("./webpack.base.config.js");
 let export_build;
 
 
-export_build =merge({
+export_build = merge({
     devServer: {
         contentBase: "./app/html",//本地服务器所加载的页面所在的目录
         historyApiFallback: true,//不跳转
@@ -13,6 +13,6 @@ export_build =merge({
         // hot: true,//热加载
         // host: '192.168.1.23',
     } 
-},webpackBase)
+},webpackBase);
     
 module.exports = export_build;

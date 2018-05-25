@@ -1,1 +1,16 @@
 webpack 升级到4.0以后的模块配置
+(参考资料https://blog.csdn.net/qq_33388137/article/details/80282117)
+(https://www.jianshu.com/p/d7879ffdb844)
+(https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1)
+
+1.npm 新版本(8.0以上)提供了package-lock.json文件，可以保证文件版本正确性
+  webpack4.0只能基于稍微高一点的npm版本
+  npm window版本控制nvmw
+2.webpack4.0默认打包文件是webpack.config.js
+    默认入口是src不需要另外配置
+    默认出口是dist不需要另外配置
+3.4.0必须安装webpack-cli去打包文件
+4. 新版本提供了production 和 development2种模式
+5.css处理
+  曾经我们都是用extract-text-webpack-plugin这个来抽去css文件，webpack4中已经废弃了（Unfortunately said plugin does not play well with webpack 4.），推荐的是mini-css-extract-plugin
+6.热加载服务器还是要用dev-server进行热加载

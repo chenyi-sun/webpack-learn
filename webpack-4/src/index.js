@@ -1,6 +1,5 @@
-require('./vendors.js');
+// require('./vendors.js');
 function hello(str){
     console.log(str);
 }
-
-hello('hello world');
+hello('hello world mosds dd');

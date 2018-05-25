@@ -10,8 +10,8 @@
 6 silly lifecycle learn8@1.0.0~predev: no script for predev, continuing
 7 info lifecycle learn8@1.0.0~dev: learn8@1.0.0
 8 verbose lifecycle learn8@1.0.0~dev: unsafe-perm in lifecycle true
-9 verbose lifecycle learn8@1.0.0~dev: PATH: D:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\ZTX\Documents\GitHub\webpack-learn\learn-vue\node_modules\.bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;D:\Program Files\TortoiseSVN\bin;C:\Users\ZTX\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\;D:\Program Files\nodejs\;C:\Users\ZTX\Documents\GitHub\nvmw;D:\Microsoft VS Code\bin;D:\Program Files\mongodb\bin;C:\MinGW\bin;C:\Users\ZTX\AppData\Roaming\npm;C:\Users\ZTX\Documents\GitHub\nvmw;;C:\Users\ZTX\AppData\Local\Programs\Fiddler
-10 verbose lifecycle learn8@1.0.0~dev: CWD: C:\Users\ZTX\Documents\GitHub\webpack-learn\learn-vue
+9 verbose lifecycle learn8@1.0.0~dev: PATH: D:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\ZTX\Documents\GitHub\webpack-learn\learn-vue-animation\node_modules\.bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;D:\Program Files\TortoiseSVN\bin;C:\Users\ZTX\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\;D:\Program Files\nodejs\;C:\Users\ZTX\Documents\GitHub\nvmw;D:\Microsoft VS Code\bin;D:\Program Files\mongodb\bin;C:\MinGW\bin;C:\Users\ZTX\AppData\Roaming\npm;C:\Users\ZTX\Documents\GitHub\nvmw;;C:\Users\ZTX\AppData\Local\Programs\Fiddler
+10 verbose lifecycle learn8@1.0.0~dev: CWD: C:\Users\ZTX\Documents\GitHub\webpack-learn\learn-vue-animation
 11 silly lifecycle learn8@1.0.0~dev: Args: [ '/d /s /c',
 11 silly lifecycle   'cross-env NODE_ENV=dev webpack-dev-server --progress --config ./conf/webpack.dev.js' ]
 12 silly lifecycle learn8@1.0.0~dev: Returned: code: 1  signal: null
@@ -27,7 +27,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:891:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid learn8@1.0.0
-16 verbose cwd C:\Users\ZTX\Documents\GitHub\webpack-learn\learn-vue
+16 verbose cwd C:\Users\ZTX\Documents\GitHub\webpack-learn\learn-vue-animation
 17 error Windows_NT 6.1.7601
 18 error argv "D:\\Program Files\\nodejs\\node.exe" "D:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "dev"
 19 error node v6.11.0
