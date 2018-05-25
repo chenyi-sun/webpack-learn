@@ -4,7 +4,10 @@ let export_build = {
         host:'127.0.0.1',
         port:8000,
         open: true,
-        // hot: true,
+        contentBase: './dist',
+    },
+    output: {
+        filename: './script/'+'[name].js',
     }
     // devServer: {
     //     //  contentBase: "./app/html",//本地服务器所加载的页面所在的目录

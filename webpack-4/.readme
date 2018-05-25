@@ -14,3 +14,15 @@ webpack 升级到4.0以后的模块配置
 5.css处理
   曾经我们都是用extract-text-webpack-plugin这个来抽去css文件，webpack4中已经废弃了（Unfortunately said plugin does not play well with webpack 4.），推荐的是mini-css-extract-plugin
 6.热加载服务器还是要用dev-server进行热加载
+7.(dev 代码地址)npm run dev2时候，生成的js文件，其实是虚拟的页面文件,相对路径在webpack.config.js里的path里面设置
+  其路径地址和页面地址需要保持一致
+8.npm run build 打包以后的文件在dist下面 生成的页面
+页面结构
+    -a.html
+    -b.html
+    -c.html
+    -script
+        -index.js
+        -one.js
+    -img
+  9.fs模块用于批量读取文件并且处理(处理入口文件)
