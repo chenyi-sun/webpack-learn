@@ -2,4 +2,4 @@
 function hello(str){
     console.log(str);
 }
-hello('hello world mosds dd');
+hello('hello world mosds ss newd ');

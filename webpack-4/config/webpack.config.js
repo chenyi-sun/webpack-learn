@@ -21,14 +21,7 @@ module.exports = (env, argv) => {
         return base;
     }
     else{
-        return {
-             devServer: {
-                  host:'127.0.0.1',
-                  port:8000,
-                  open: true,
-                  publicPath: 'dist/'
-             }
-        }
+        return merge(base, dev);
     }
 }
 // if(argv.mode == "development"){
