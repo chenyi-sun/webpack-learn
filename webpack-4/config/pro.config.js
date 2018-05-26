@@ -25,7 +25,7 @@ htmlFiles.forEach((item)=>{
                 template: __dirname+'/../src/'+item,
                 inject: true,
                 // name: 'sss',
-                chunks: init.isHash?[item.replace('.html','')]:[],
+                chunks: init.isHash?[item.replace('.html',''),'vendor']:['vendor'],
                 minify: { // 压缩 HTML 的配置
                     minifyCSS: true, // 压缩 HTML 中出现的 CSS 代码
                     minifyJS: true, // 压缩 HTML 中出现的 JS 代码
@@ -44,6 +44,18 @@ htmlFiles.forEach((item)=>{
 let export_production;
 export_production = {
      plugins: plugins,
+     optimization: { //提取公共代码
+        splitChunks: {
+             cacheGroups: {
+                  vendor: {
+                      chunks: "initial",
+                      name: "vendor",
+                      enforce: true,
+                      minChunks: 1, 
+                  }
+             }
+        }
+     }
 };
 
 module.exports = export_production; //生产环境

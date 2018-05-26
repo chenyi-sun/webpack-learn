@@ -20,7 +20,7 @@ jsfiles.forEach((item)=>{
 var base = {
     entry: entrys,
     output: {
-        publicPath: './script',
+        publicPath: init.htmlJsPath+'script',
         filename: init.isHash?'[name].[chunkhash].js':'[name].js',
         path: __dirname+'/../dist/script'
     },

@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1 dev2 打开热加载 build2 打包文件",
-    "dev": "webpack --mode development",
-    "dev2": "webpack-dev-server --mode=development  --config config/webpack.config.js",
-    "build": "webpack --mode production",
-    "build2": "webpack --mode=production --config config/webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1 dev 打开热加载 build 打包文件",
+    "dev2": "webpack --mode development",
+    "dev": "webpack-dev-server --mode=development  --config config/webpack.config.js",
+    "build2": "webpack --mode production",
+    "build": "webpack --mode=production --config config/webpack.config.js",
     "hots": "webpack-dev-server --mode development --open"
   },
   "author": "",

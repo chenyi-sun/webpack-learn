@@ -1,4 +1,5 @@
 const merge = require("webpack-merge");
+const webpack = require("webpack");
 const htmlWebpackPlugin = require('html-webpack-plugin');
 let export_build = {
      devServer: {
@@ -13,7 +14,9 @@ let export_build = {
         filename: './script/'+'[name].js',
     },
     plugins:[
-       
+       // 在 HMR 更新的浏览器控制台中打印更易读的模块名称
+       new webpack.NamedModulesPlugin(),
+       new webpack.HotModuleReplacementPlugin()
     ],
             
     // devServer: {
