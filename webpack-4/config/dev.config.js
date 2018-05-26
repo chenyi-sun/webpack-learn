@@ -4,7 +4,7 @@ let export_build = {
         host:'127.0.0.1',
         port:8000,
         open: true,
-        contentBase: './dist',
+        contentBase: './src',
     },
     output: {
         filename: './script/'+'[name].js',
