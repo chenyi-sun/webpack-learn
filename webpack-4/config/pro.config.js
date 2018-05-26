@@ -25,7 +25,7 @@ htmlFiles.forEach((item)=>{
                 template: __dirname+'/../src/'+item,
                 inject: true,
                 // name: 'sss',
-                chunks: [item.replace('.html','')],
+                chunks: init.isHash?[item.replace('.html','')]:[],
                 minify: { // 压缩 HTML 的配置
                     minifyCSS: true, // 压缩 HTML 中出现的 CSS 代码
                     minifyJS: true, // 压缩 HTML 中出现的 JS 代码
