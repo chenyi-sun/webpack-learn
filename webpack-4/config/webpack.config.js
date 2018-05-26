@@ -10,7 +10,7 @@ const fs = require('fs');
 var jsPath = __dirname+'/../src/script';
 var jsfiles = fs.readdirSync(jsPath);
 
-let entrys = {}; 
+let entrys = {};  //入口文件
 
 jsfiles.forEach((item)=>{
     let name = item.replace('.js','');
@@ -20,7 +20,7 @@ jsfiles.forEach((item)=>{
 var base = {
     entry: entrys,
     output: {
-        filename: init.isHash?'[name].[hash].js':'[name].js',
+        filename: init.isHash?'[name].[chunkhash].js':'[name].js',
         path: __dirname+'/../dist/script'
     },
 };
