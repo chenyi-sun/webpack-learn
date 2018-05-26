@@ -5,9 +5,11 @@ let export_build = {
         host:'127.0.0.1',
         port:8000,
         open: true,
+        // hot: true,
         contentBase: './src',
     },
     output: {
+        publicPath: '/',
         filename: './script/'+'[name].js',
     },
     plugins:[

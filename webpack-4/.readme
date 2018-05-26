@@ -2,6 +2,8 @@ webpack 升级到4.0以后的模块配置
 (参考资料https://blog.csdn.net/qq_33388137/article/details/80282117)
 (https://www.jianshu.com/p/d7879ffdb844)
 (https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1)
+(https://segmentfault.com/a/1190000007294861)
+
 
 1.npm 新版本(8.0以上)提供了package-lock.json文件，可以保证文件版本正确性
   webpack4.0只能基于稍微高一点的npm版本
