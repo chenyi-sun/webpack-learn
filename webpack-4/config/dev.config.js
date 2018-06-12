@@ -1,6 +1,7 @@
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 let export_build = {
      devServer: {
         host:'127.0.0.1',
@@ -16,9 +17,8 @@ let export_build = {
     plugins:[
        // 在 HMR 更新的浏览器控制台中打印更易读的模块名称
        new webpack.NamedModulesPlugin(),
-       new webpack.HotModuleReplacementPlugin()
+       new webpack.HotModuleReplacementPlugin(),
     ],
-            
     // devServer: {
     //     //  contentBase: "./app/html",//本地服务器所加载的页面所在的目录
     //      publicPath: 'dist/', //JS的相对路径

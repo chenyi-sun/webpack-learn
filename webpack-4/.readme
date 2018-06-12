@@ -3,6 +3,8 @@ webpack 升级到4.0以后的模块配置
 (https://www.jianshu.com/p/d7879ffdb844)
 (https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1)
 (https://segmentfault.com/a/1190000007294861)
+(https://webpack.docschina.org/loaders/)
+(https://www.cnblogs.com/kxx-21k/p/9080465.html)
 
 
 1.npm 新版本(8.0以上)提供了package-lock.json文件，可以保证文件版本正确性
@@ -32,12 +34,13 @@ webpack 升级到4.0以后的模块配置
     再次打包的时候，一些js的哈希值会改变，同一个JS文件，就不会去清除哈希值，重新打包
 11.html-webpack-plugin生成html页面,压缩页面元素，定义生成HTML的路径,还可以去空格，
   把共用js提出，设置注入的js名称,还可以特定注入元素名称
-12.公共js提取(还没写)
+12.公共js提取
 13.图片压缩(还没写)
-14.css压缩，提取(还没写)
+14.css压缩，提取(处理写好了)(提取还没写)
 15.视频入口处理
 16.动画添加
 17.路由配置
 18.jqury添加
 19.模板文件解析
-20.
+20.vue图片批处理方式
+21.

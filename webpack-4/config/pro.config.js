@@ -3,6 +3,8 @@ const path = require('path');
 const init = require('./define.config');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin") 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const htmlPath = __dirname+'/../src';
 const htmlFiles = fs.readdirSync(htmlPath);
@@ -10,21 +12,30 @@ const plugins = [];
 
 plugins.push(
     new CleanWebpackPlugin(
-         ['*.js'],
+         ['*.js','*.css'],
          {
-             root: __dirname+'/../dist/script', //根目录
+             root: __dirname+'./../dist/script', //根目录
              dry: false //启用删除文件
          }
-    )   
+    )  
 );
+
+plugins.push(new CleanWebpackPlugin(
+         ['*.js','*.css','*.html'],
+         {
+             root: __dirname+'./../dist', //根目录
+             dry: false //启用删除文件
+         }
+    ) 
+);
+
 htmlFiles.forEach((item)=>{
     if(item.indexOf('html')>0){
           plugins.push(
             new htmlWebpackPlugin({
-                filename: './../'+item,
-                template: __dirname+'/../src/'+item,
+                filename: './'+item,
+                template: __dirname+'./../src/'+item,
                 inject: true,
-                // name: 'sss',
                 chunks: init.isHash?[item.replace('.html',''),'vendor']:['vendor'],
                 minify: { // 压缩 HTML 的配置
                     minifyCSS: true, // 压缩 HTML 中出现的 CSS 代码
@@ -39,7 +50,15 @@ htmlFiles.forEach((item)=>{
          );
     }
 });
-
+// plugins.push(
+//     new ExtractTextPlugin("css/styles.css")
+// );
+plugins.push(
+    new MiniCssExtractPlugin({
+    　　filename:  "css/[name].[chunkhash:8].css",
+    　　chunkFilename: "css/[id].css",
+　　})
+);
 
 let export_production;
 export_production = {
@@ -55,7 +74,8 @@ export_production = {
                   }
              }
         }
-     }
+     },
+     
 };
 
 module.exports = export_production; //生产环境

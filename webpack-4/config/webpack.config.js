@@ -4,6 +4,8 @@ const init = require('./define.config');
 const dev = require('./dev.config');
 const pro = require('./pro.config');
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const fs = require('fs');
 
@@ -17,21 +19,35 @@ jsfiles.forEach((item)=>{
     entrys[name] = __dirname+'/../src/script/'+name+'.js';
 });
 
-var base = {
-    entry: entrys,
-    output: {
-        publicPath: init.htmlJsPath+'script',
-        filename: init.isHash?'[name].[chunkhash].js':'[name].js',
-        path: __dirname+'/../dist/script'
-    },
-};
+var base = function(mode){
+    return {
+        entry: entrys,
+        output: {
+            publicPath: init.htmlJsPath,
+            filename: init.isHash?'script/[name].[chunkhash].js':'script/[name].js',
+            path: path.resolve(__dirname, './../dist')
+        },
+        module: {
+            rules: [{
+               test: /\.css$/,
+               use: mode=="production"?[
+                   MiniCssExtractPlugin.loader,
+                   "css-loader"
+               ]:[
+                  "style-loader",
+                  "css-loader" 
+               ],
+           }]
+        },
+    };
+}
 
 module.exports = (env, argv) => {
     if(argv.mode == "production"){
-        return merge(base, pro);
+        return merge( base(argv.mode), pro);
     }
     else{
-        return merge(base, dev);
+        return merge( base(argv.mode),dev);
     }
 }
 
