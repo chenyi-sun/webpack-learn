@@ -30,14 +30,33 @@ var base = function(mode){
         module: {
             rules: [{
                test: /\.css$/,
-               use: mode=="production"?[
-                   MiniCssExtractPlugin.loader,
-                   "css-loader"
-               ]:[
-                  "style-loader",
-                  "css-loader" 
-               ],
-           }]
+               use: mode=="production"? //是否是生产环境
+                [
+                    MiniCssExtractPlugin.loader,
+                    {
+                            loader: 'css-loader',
+                            options:{
+                                minimize: init.whitesapce //css压缩
+                            }
+                        },
+                    "postcss-loader"
+                ]
+                :
+                [
+                    "style-loader",
+                    "css-loader",
+                    "postcss-loader"
+                ],
+            },{
+                test: /\.(png|jpg|gif)/,
+                use:[{
+                    loader:'url-loader',  // url-loader
+                    options:{
+                        limit:400000, // 是把小于400000B的文件打成Base64的格式
+                        outputPath:'images/'  //  把图片打包到指定路径下
+                    }
+                }]
+            }]
         },
     };
 }

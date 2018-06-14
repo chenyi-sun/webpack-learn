@@ -5,6 +5,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin") 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const copyWebpackPlugin= require("copy-webpack-plugin");
 
 const htmlPath = __dirname+'/../src';
 const htmlFiles = fs.readdirSync(htmlPath);
@@ -19,7 +20,15 @@ plugins.push(
          }
     )  
 );
-
+plugins.push(
+    new CleanWebpackPlugin(
+         ['*.js','*.css'],
+         {
+             root: __dirname+'./../dist/css', //根目录
+             dry: false //启用删除文件
+         }
+    )  
+);
 plugins.push(new CleanWebpackPlugin(
          ['*.js','*.css','*.html'],
          {
@@ -28,7 +37,10 @@ plugins.push(new CleanWebpackPlugin(
          }
     ) 
 );
-
+plugins.push(new copyWebpackPlugin([{
+     from:__dirname+'./../src/public', // 要打包的静态资源目录地址
+     to:'./public' // 要打包到的文件夹路径，跟随output配置中的目录
+}]));
 htmlFiles.forEach((item)=>{
     if(item.indexOf('html')>0){
           plugins.push(
@@ -51,11 +63,11 @@ htmlFiles.forEach((item)=>{
     }
 });
 // plugins.push(
-//     new ExtractTextPlugin("css/styles.css")
+//      require('autoprefixer')
 // );
 plugins.push(
     new MiniCssExtractPlugin({
-    　　filename:  "css/[name].[chunkhash:8].css",
+    　　filename:  init.isHash?"css/[name].[chunkhash:8].css":"css/[name].css",
     　　chunkFilename: "css/[id].css",
 　　})
 );
@@ -70,12 +82,11 @@ export_production = {
                       chunks: "initial",
                       name: "vendor",
                       enforce: true,
-                      minChunks: 1, 
+                      minChunks: 2, 
                   }
              }
         }
      },
-     
 };
 
 module.exports = export_production; //生产环境
