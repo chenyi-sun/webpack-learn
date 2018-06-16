@@ -28,7 +28,13 @@ var base = function(mode){
             path: path.resolve(__dirname, './../dist')
         },
         module: {
-            rules: [{
+            rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            },
+            {
                test: /\.css$/,
                use: mode=="production"? //是否是生产环境
                 [

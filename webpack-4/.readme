@@ -51,4 +51,7 @@ webpack 升级到4.0以后的模块配置
 23.less,scss文件处理
 24.文字处理
 25.babel 处理 es5/es6
+  (https://blog.csdn.net/u012443286/article/details/79577545)
+  需要安装 (babel-core/babel-loader/babel-preset-env)三种，才能处理es6的问题
+  (ok)已经解码了
 26.
