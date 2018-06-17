@@ -44,7 +44,7 @@ var base = function(mode){
                             options:{
                                 minimize: init.whitesapce //css压缩
                             }
-                        },
+                    },
                     "postcss-loader"
                 ]
                 :
@@ -62,6 +62,19 @@ var base = function(mode){
                         outputPath:'images/'  //  把图片打包到指定路径下
                     }
                 }]
+            },{
+                test: /\.less$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "style-loader",
+                    {
+                    loader: 'css-loader',
+                            options:{
+                                minimize: init.whitesapce //css压缩
+                            }
+                    },
+                    "less-loader"
+                ]
             }]
         },
     };

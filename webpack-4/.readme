@@ -33,23 +33,23 @@ webpack 升级到4.0以后的模块配置
 10.clean-webpack-plugin（删除文件）
     再次打包的时候，一些js的哈希值会改变，同一个JS文件，就不会去清除哈希值，重新打包
 11.html-webpack-plugin生成html页面,压缩页面元素，定义生成HTML的路径,还可以去空格，
-  把共用js提出，设置注入的js名称,还可以特定注入元素名称
+  把共用js提出，设置注入的js名称,还可以特定注入元素名称(ok)
 12.公共js提取
 13.图片压缩(还没写)
   url-loader 如果图片较多，会发很多http请求，会降低页面性能
   file-loader 解决引用路径的问题
-  html-withimg-loader 直接在文件中引用img图片
+  html-withimg-loader 直接在文件中引用img图片(copyWebpackPlugin直接使用了文件拷贝的功能)(ok)
 14.css压缩，提取(ok)
-15.视频入口处理
-16.动画添加
-17.路由配置
-18.jqury添加
-19.模板文件解析
-20.vue图片批处理方式
+15.视频入口处理(还没有写)
+16.动画添加(还没写)
+17.路由配置(no)
+18.jqury添加(no)
+19.模板文件解析(no)
+20.vue图片批处理方式(no)
 21.postcss-loader autoprefixer自动添加前缀处理（包括根目录的poctcss.config.js也是前缀的处理）
 22.图片路径处理(https://my.oschina.net/u/3570261/blog/1825773)
-23.less,scss文件处理
-24.文字处理
+23.less,scss文件处理(no)(less好了 sass没好)
+24.文字处理(no)
 25.babel 处理 es5/es6
   (https://blog.csdn.net/u012443286/article/details/79577545)
   需要安装 (babel-core/babel-loader/babel-preset-env)三种，才能处理es6的问题
