@@ -54,27 +54,38 @@ var base = function(mode){
                     "postcss-loader"
                 ],
             },{
-                test: /\.(png|jpg|gif)/,
+                test:/\.(png|jpe?g|gif|svg|jpg)(\?.*)?$/,
                 use:[{
                     loader:'url-loader',  // url-loader
-                    options:{
-                        limit:400000, // 是把小于400000B的文件打成Base64的格式
-                        outputPath:'images/'  //  把图片打包到指定路径下
-                    }
+                    // options:{
+                    //     limit:400000, // 是把小于400000B的文件打成Base64的格式
+                    //     outputPath:'images/'  //  把图片打包到指定路径下
+                    // }
                 }]
             },{
                 test: /\.less$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    "style-loader",
-                    {
-                    loader: 'css-loader',
-                            options:{
-                                minimize: init.whitesapce //css压缩
-                            }
-                    },
+                use: mode=="production"? //是否是生产环境
+                [
+                     MiniCssExtractPlugin.loader,
+                    "css-loader",
                     "less-loader"
+                ]:[
+                    "style-loader",
+                    "css-loader",
+                    "postcss-loader" 
                 ]
+            },{
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                use: [
+                    {
+                       loader:'url-loader',
+                       options:{
+                        
+                       }
+                    }
+                ]
+            },{
+                
             }]
         },
     };

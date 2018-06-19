@@ -1,5 +1,5 @@
 require('./../css/one.css');
-console.log('sssdd sss ds names opps ups');
+require('./../less/common.less');
 alert('ss');
 
 function name(item){

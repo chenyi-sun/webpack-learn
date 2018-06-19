@@ -1,5 +1,6 @@
 require('./../css/index.css');
 require('./../less/index.less');
+require('./../less/common.less');
 let  arrs = [];
 const  arr1 = ['a', 'b'];
 const  arr2 = ['c'];

@@ -6,7 +6,6 @@ webpack 升级到4.0以后的模块配置
 (https://webpack.docschina.org/loaders/)
 (https://www.cnblogs.com/kxx-21k/p/9080465.html)
 
-
 1.npm 新版本(8.0以上)提供了package-lock.json文件，可以保证文件版本正确性
   webpack4.0只能基于稍微高一点的npm版本
   npm window版本控制nvmw
@@ -35,7 +34,7 @@ webpack 升级到4.0以后的模块配置
 11.html-webpack-plugin生成html页面,压缩页面元素，定义生成HTML的路径,还可以去空格，
   把共用js提出，设置注入的js名称,还可以特定注入元素名称(ok)
 12.公共js提取
-13.图片压缩(还没写)
+13.图片压缩(还没写)ss
   url-loader 如果图片较多，会发很多http请求，会降低页面性能
   file-loader 解决引用路径的问题
   html-withimg-loader 直接在文件中引用img图片(copyWebpackPlugin直接使用了文件拷贝的功能)(ok)
