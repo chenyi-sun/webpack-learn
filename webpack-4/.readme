@@ -47,8 +47,8 @@ webpack 升级到4.0以后的模块配置
 20.vue图片批处理方式(no)
 21.postcss-loader autoprefixer自动添加前缀处理（包括根目录的poctcss.config.js也是前缀的处理）
 22.图片路径处理(https://my.oschina.net/u/3570261/blog/1825773)
-23.less,scss文件处理(no)(less好了 sass没好)
-24.文字处理(no)
+23.less,scss文件处理(ok)
+24.文字处理(ok)
 25.babel 处理 es5/es6
   (https://blog.csdn.net/u012443286/article/details/79577545)
   需要安装 (babel-core/babel-loader/babel-preset-env)三种，才能处理es6的问题

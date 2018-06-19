@@ -68,11 +68,13 @@ var base = function(mode){
                 [
                      MiniCssExtractPlugin.loader,
                     "css-loader",
+                    "postcss-loader",
                     "less-loader"
                 ]:[
                     "style-loader",
                     "css-loader",
-                    "postcss-loader" 
+                    "postcss-loader",
+                    "less-loader" 
                 ]
             },{
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -85,7 +87,19 @@ var base = function(mode){
                     }
                 ]
             },{
-                
+                test: /\.scss$/,
+                use: mode=="production"? //是否是生产环境
+                [
+                     MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader"
+                ]:[
+                    "style-loader",
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader"
+                ]
             }]
         },
     };
