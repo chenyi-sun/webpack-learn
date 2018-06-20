@@ -41,6 +41,7 @@ webpack 升级到4.0以后的模块配置
 14.css压缩，提取(ok)
 15.视频入口处理(还没有写)
 16.动画添加(还没写)
+  Animate.css  Velociyt.js
 17.路由配置(no)
 18.jqury添加(no)
 19.模板文件解析(no)
