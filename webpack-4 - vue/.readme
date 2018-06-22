@@ -1,0 +1,63 @@
+webpack 升级到4.0以后的模块配置
+(参考资料https://blog.csdn.net/qq_33388137/article/details/80282117)
+(https://www.jianshu.com/p/d7879ffdb844)
+(https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1)
+(https://segmentfault.com/a/1190000007294861)
+(https://webpack.docschina.org/loaders/)
+(https://www.cnblogs.com/kxx-21k/p/9080465.html)
+
+1.npm 新版本(8.0以上)提供了package-lock.json文件，可以保证文件版本正确性
+  webpack4.0只能基于稍微高一点的npm版本
+  npm window版本控制nvmw
+2.webpack4.0默认打包文件是webpack.config.js
+    默认入口是src不需要另外配置
+    默认出口是dist不需要另外配置
+3.4.0必须安装webpack-cli去打包文件
+4. 新版本提供了production 和 development2种模式
+5.css处理
+  曾经我们都是用extract-text-webpack-plugin这个来抽去css文件，webpack4中已经废弃了（Unfortunately said plugin does not play well with webpack 4.），推荐的是mini-css-extract-plugin
+6.热加载服务器还是要用dev-server进行热加载
+7.(dev 代码地址)npm run dev2时候，生成的js文件，其实是虚拟的页面文件,相对路径在webpack.config.js里的path里面设置
+  其路径地址和页面地址需要保持一致
+8.npm run build 打包以后的文件在dist下面 生成的页面
+页面结构
+    -a.html
+    -b.html
+    -c.html
+    -script
+        -index.js
+        -one.js
+    -img
+9.fs模块用于批量读取文件并且处理(处理入口文件)
+10.clean-webpack-plugin（删除文件）
+    再次打包的时候，一些js的哈希值会改变，同一个JS文件，就不会去清除哈希值，重新打包
+11.html-webpack-plugin生成html页面,压缩页面元素，定义生成HTML的路径,还可以去空格，
+  把共用js提出，设置注入的js名称,还可以特定注入元素名称(ok)
+12.公共js提取
+13.图片压缩(还没写)ss
+  url-loader 如果图片较多，会发很多http请求，会降低页面性能
+  file-loader 解决引用路径的问题
+  html-withimg-loader 直接在文件中引用img图片(copyWebpackPlugin直接使用了文件拷贝的功能)(ok)
+14.css压缩，提取(ok)
+15.视频入口处理(还没有写)
+16.动画添加(还没写)
+  Animate.css  Velociyt.js(ok配置好了)
+17.路由配置(no)
+18.jqury添加(no)
+19.模板文件解析(no)
+20.vue图片批处理方式(no)
+21.postcss-loader autoprefixer自动添加前缀处理（包括根目录的poctcss.config.js也是前缀的处理）
+22.图片路径处理(https://my.oschina.net/u/3570261/blog/1825773)
+23.less,scss文件处理(ok)
+24.文字处理(ok)
+25.babel 处理 es5/es6
+  (https://blog.csdn.net/u012443286/article/details/79577545)
+  需要安装 (babel-core/babel-loader/babel-preset-env)三种，才能处理es6的问题
+  (ok)已经解码了
+26.eslink配置
+(https://www.cnblogs.com/TiffanyHYY/p/7204171.html)
+(https://www.cnblogs.com/ye-hcj/p/7069505.html)
+(https://www.2cto.com/kf/201707/656821.html)
+配置参考
+27.页面js代码加密，写加密规则，混淆代码
+28.md文件夹加密处理
