@@ -41,7 +41,7 @@ webpack 升级到4.0以后的模块配置
 14.css压缩，提取(ok)
 15.视频入口处理(还没有写)
 16.动画添加(还没写)
-  Animate.css  Velociyt.js
+  Animate.css  Velociyt.js(ok配置好了)
 17.路由配置(no)
 18.jqury添加(no)
 19.模板文件解析(no)
@@ -54,4 +54,10 @@ webpack 升级到4.0以后的模块配置
   (https://blog.csdn.net/u012443286/article/details/79577545)
   需要安装 (babel-core/babel-loader/babel-preset-env)三种，才能处理es6的问题
   (ok)已经解码了
-26.
+26.eslink配置
+(https://www.cnblogs.com/TiffanyHYY/p/7204171.html)
+(https://www.cnblogs.com/ye-hcj/p/7069505.html)
+(https://www.2cto.com/kf/201707/656821.html)
+配置参考
+27.页面js代码加密，写加密规则，混淆代码
+28.

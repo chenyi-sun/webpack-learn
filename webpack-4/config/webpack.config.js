@@ -32,7 +32,12 @@ var base = function(mode){
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                use: (init.closeEslink && (mode!="production"))?[ //是否执行检验 且 不是发布状况
+                    "babel-loader",
+                    "eslint-loader"
+                ]:[
+                    "babel-loader",
+                ]
             },
             {
                test: /\.css$/,

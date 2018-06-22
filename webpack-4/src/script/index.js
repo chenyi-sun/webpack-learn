@@ -12,5 +12,4 @@ document.getElementsByClassName("shoc")[0].velocity({
     opacity:0
 },"easeInOutSine")
 
-
 arrs = [...arr1, ...arr2, ...arr3];
