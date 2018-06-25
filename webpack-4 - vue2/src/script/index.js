@@ -5,7 +5,8 @@ import mdin from "./../md/in.js";
 import mdout from "./../md/out.js";
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import inde from './../components/index.vue';
+
+import routes from './../public/router.js'
 let  arrs = [];
 const  arr1 = ['a', 'b'];
 const  arr2 = ['c'];
@@ -19,14 +20,15 @@ var value = {
     link3: "link3.ask.vue.miss"
 };
 
- const Foo = {
-    template: '<div>foo</div>'
- };
- var routes = [
-     {
-        path: '/foo', component: Foo
-     }
- ];
+
+//  var routers = [
+//      {
+//         path: '/foo', component: Foo
+//      },
+//      {
+//         path: '/bar', component: Bar
+//      }
+//  ];
  const router = new VueRouter({
      routes
  });
@@ -39,7 +41,7 @@ var value = {
         },
         router,
         components: {
-            inde
+            
         }
  });
 
