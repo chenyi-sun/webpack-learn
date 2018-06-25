@@ -113,6 +113,11 @@ var base = function(mode){
                     "postcss-loader",
                     "sass-loader"
                 ]
+            },{
+                test: /\.(mp3)(\?.*)?$/,
+                use:[{
+                    loader:'url-loader',
+                }] 
             }]
         },
         resolve: {

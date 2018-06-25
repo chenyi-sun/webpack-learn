@@ -1,0 +1,7 @@
+.diy-pop-head{
+    padding: 12px;
+    background: white;
+    color: blue;
+    border-bottom:1px solid red;
+    transform: scale(0.3);
+}
