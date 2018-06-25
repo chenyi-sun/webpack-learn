@@ -26,7 +26,7 @@ const  arr3 = ['d', 'e'];
 var value = {
     link1: "link1.ask.name.vue",
     link2: "link2.ask.name.mark.mask",
-    link3: "link3.ask.vue.miss"
+    link3: "link3.ask.vue.misssss"
 }
 // console.log(mdin(value));
 console.log(mdout(mdin(value)));
