@@ -8,39 +8,32 @@ let  arrs = [];
 const  arr1 = ['a', 'b'];
 const  arr2 = ['c'];
 const  arr3 = ['d', 'e'];
+function activeLasers(){
+    alert("names is as");
+}
 
-class Clock extends React.Component {
+var handleClick = (e)=>{
+    e.preventDefault();
+}
+//  function handleClick(e){
+//         e.preventDefault();
+// }
+class Toggle extends React.Component {
     constructor(props){
         super(props);
-        this.state = {date: new Date()};
+        this.state = {
+            isToggleOn: true
+        }
     }
-
-    componentDidMount(){ //组件被输出到DOM之后运行
-        this.timerID = setInterval(
-            () => this.tick(),
-            1000
-        );
-    }
-
-    componentWillUnmount(){ //当组件被注销的时候执行
-        clearInterval(this.timerID);
-    }
-
-    tick(){
-        this.setState({
-            date: new Date()
-        });
-    }
-
     render(){
         return (
-            <div>
-                <h1>Hello , world!</h1>
-                <h2>It is {this.state.date.toLocaleTimeString()}</h2>
-            </div>
+            <buttom onClick={this.change}>
+                {this.state.isToggleOn?"true":"false"}
+            </buttom>
         );
     }
 }
+
 
 ReactDom.render(
     <Clock/>,
