@@ -65,4 +65,16 @@ webpack 升级到4.0以后的模块配置
 
 <!--- 在webpack4的基础上面 配置react的环境 2018-6-26--->
   
+  1.安装了react 和 react-dom (ok) 
+  2.在json - 里面配置了 parst 里面的 react 编译jsx文件 (ok)
+  3.redux（还没有好）
+
 <!--- 2018-6-26 --->
+
+<!--- 2018-6-27 --->
+http://www.css88.com/react/docs/add-react-to-an-existing-app.html
+
+preact
+
+anu
+<!--- 2018-6-27 --->
