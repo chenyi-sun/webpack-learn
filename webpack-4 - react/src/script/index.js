@@ -7,7 +7,7 @@ class Template extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            value: this.props.value,
+          
         }
         this.ValueChaneg = this.ValueChaneg.bind(this);
     }
@@ -15,35 +15,44 @@ class Template extends React.Component {
         this.props.onTempletchange(event.target.value, this.props.name);
     }
     render(){
+        const value = this.props.value;
         return (
             <div>
-                <input value={this.state.value} onChange={this.ValueChaneg}/>
+                <input  value={value} onChange={this.ValueChaneg}/>
             </div>
         );
     }
 }
+
 class Dangor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             setWater: null,
-            ceil: 0,
-            feil: 0
+            ceil: '',
+            feil: ''
         };
         this.change = this.change.bind(this); 
     }
     change(value, name){
-        console.log(value); 
-        console.log(name);
+    
+        this.setState({
+            ceil: name == names[0]? value: value/10,
+            feil: name == names[1]? value: value*10,
+            setWater: name == names[0]? value: value/10
+        });
     }
     render() {
+        var ceil = this.state.ceil;
+        const message = this.state.setWater >= 20? "is hot": "is cold";
         return (
            <div>
                <Template 
                     name={names[0]}
-                    value={this.state.ceil}
+                    value={ceil}
                     onTempletchange = {this.change}
                />
+               <br/>
                <Template 
                     name={names[1]} 
                     value={this.state.feil}
@@ -51,7 +60,7 @@ class Dangor extends React.Component {
                />
               
                <div>
-
+                    {message}
                </div>
            </div>
         )
