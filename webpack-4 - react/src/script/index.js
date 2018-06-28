@@ -4,39 +4,30 @@ require('./../less/common.less');
 import React from 'react';
 import ReactDom, {render} from 'react-dom';
 
-let  arrs = [];
-const  arr1 = ['a', 'b'];
-const  arr2 = ['c'];
-const  arr3 = ['d', 'e'];
-function activeLasers(){
-    alert("names is as");
-}
+var arr = [1, 2, 3, 4, 5];
+var newarr = arr.map((item) => 
+    <li key = {item.toString()}>{item}</li>
+);
+console.log(newarr);
 
-var handleClick = (e)=>{
-    e.preventDefault();
-}
-//  function handleClick(e){
-//         e.preventDefault();
-// }
-class Toggle extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            isToggleOn: true
-        }
-    }
-    render(){
-        return (
-            <buttom onClick={this.change}>
-                {this.state.isToggleOn?"true":"false"}
-            </buttom>
-        );
-    }
+function AllDom(props){
+    const number = props.number;
+    const listItems = number.map((item, index) => 
+        <li key={index}>
+           {item} + sss
+        </li>
+    );
+    return (
+        <ul>
+            {listItems}
+        </ul>
+    );
 }
 
 
+var number = [1,2,4,5];
 ReactDom.render(
-    <Clock/>,
+    <AllDom number={number}/>,
     document.getElementById('root')
 );
 
