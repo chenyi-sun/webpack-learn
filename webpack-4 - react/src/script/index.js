@@ -3,30 +3,63 @@ require('./../less/index.less');
 require('./../less/common.less');
 import React from 'react';
 import ReactDom, {render} from 'react-dom';
-
-var arr = [1, 2, 3, 4, 5];
-var newarr = arr.map((item) => 
-    <li key = {item.toString()}>{item}</li>
-);
-console.log(newarr);
-
-function AllDom(props){
-    const number = props.number;
-    const listItems = number.map((item, index) => 
-        <li key={index}>
-           {item} + sss
-        </li>
-    );
-    return (
-        <ul>
-            {listItems}
-        </ul>
-    );
+class Template extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            value: this.props.value,
+        }
+        this.ValueChaneg = this.ValueChaneg.bind(this);
+    }
+    ValueChaneg(event){
+        this.props.onTempletchange(event.target.value, this.props.name);
+    }
+    render(){
+        return (
+            <div>
+                <input value={this.state.value} onChange={this.ValueChaneg}/>
+            </div>
+        );
+    }
 }
+class Dangor extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            setWater: null,
+            ceil: 0,
+            feil: 0
+        };
+        this.change = this.change.bind(this); 
+    }
+    change(value, name){
+        console.log(value); 
+        console.log(name);
+    }
+    render() {
+        return (
+           <div>
+               <Template 
+                    name={names[0]}
+                    value={this.state.ceil}
+                    onTempletchange = {this.change}
+               />
+               <Template 
+                    name={names[1]} 
+                    value={this.state.feil}
+                    onTempletchange = {this.change}
+               />
+              
+               <div>
 
-var number = [1,2,4,5];
+               </div>
+           </div>
+        )
+    }
+}
+const names = ['cel','fah'];
 ReactDom.render(
-    <AllDom number={number}/>,
+    <Dangor/>,
     document.getElementById('root')
 );
 
