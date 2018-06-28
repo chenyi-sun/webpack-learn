@@ -24,7 +24,6 @@ function AllDom(props){
     );
 }
 
-
 var number = [1,2,4,5];
 ReactDom.render(
     <AllDom number={number}/>,
