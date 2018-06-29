@@ -3,72 +3,78 @@ require('./../less/index.less');
 require('./../less/common.less');
 import React from 'react';
 import ReactDom, {render} from 'react-dom';
-class Template extends React.Component {
+import { VelocityComponent } from 'velocity-react';
+
+const VelocityLetter = ({ letter }) => (
+  <VelocityComponent
+    runOnMount
+    animation={{ opacity: 1, marginTop: 0 }}
+    duration={500}
+  >
+    <p style={styles.letter}>{letter}</p>
+  </VelocityComponent>
+)
+
+
+class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-          
+            letters: [],
         }
-        this.ValueChaneg = this.ValueChaneg.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
-    ValueChaneg(event){
-        this.props.onTempletchange(event.target.value, this.props.name);
-    }
-    render(){
-        const value = this.props.value;
-        return (
-            <div>
-                <input  value={value} onChange={this.ValueChaneg}/>
-            </div>
-        );
-    }
+  onChange (e) {
+    const letters = e.target.value.split('');
+    const arr = []
+    letters.forEach((l, i) => {
+      arr.push(<VelocityLetter letter={l} key={i}/>)
+    })
+    this.setState(() => ({ letters: arr }))
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className="container">
+          <input onChange={this.onChange} style={styles.input} />
+          <div style={styles.letters}>
+            {
+              this.state.letters
+            }
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-class Dangor extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            setWater: null,
-            ceil: '',
-            feil: ''
-        };
-        this.change = this.change.bind(this); 
-    }
-    change(value, name){
-    
-        this.setState({
-            ceil: name == names[0]? value: value/10,
-            feil: name == names[1]? value: value*10,
-            setWater: name == names[0]? value: value/10
-        });
-    }
-    render() {
-        var ceil = this.state.ceil;
-        const message = this.state.setWater >= 20? "is hot": "is cold";
-        return (
-           <div>
-               <Template 
-                    name={names[0]}
-                    value={ceil}
-                    onTempletchange = {this.change}
-               />
-               <br/>
-               <Template 
-                    name={names[1]} 
-                    value={this.state.feil}
-                    onTempletchange = {this.change}
-               />
-              
-               <div>
-                    {message}
-               </div>
-           </div>
-        )
-    }
+const styles = {
+  input: {
+    height: 40,
+    backgroundColor: '#ddd',
+    width: 200,
+    border: 'none',
+    outline: 'none',
+    marginBottom: 20,
+    fontSize: 22,
+    padding: 8,
+  },
+  letters: {
+    display: 'flex',
+    height: 140,
+  },
+  letter: {
+    opacity: 0,
+    marginTop: 100,
+    fontSize: 22,
+    whiteSpace: 'pre',
+  }
 }
-const names = ['cel','fah'];
+
+
 ReactDom.render(
-    <Dangor/>,
+    <App/>,
     document.getElementById('root')
 );
 
