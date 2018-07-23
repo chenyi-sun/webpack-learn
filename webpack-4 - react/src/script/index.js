@@ -6,45 +6,59 @@ import ReactDom from 'react-dom';
 import { VelocityComponent } from 'velocity-react';
 import { createStore } from 'redux';
 
-const reducer = (state = 2, action) => {
-    if(action.type){
-        switch (action.type){
-            case 'INCREMENT': return action.text;
-            case 'DECREMENT': return state - 1;
-            default: return state;
-        } 
-    }
-    else if(action){
+const name = "test";
 
-    } 
+function formatName(user){
+    return user.firstName + ' ' + user.lastName;
+};
+
+const user = {
+    firstName: 'Harper',
+    lastName: 'Perez'
+};
+
+let newArr = [
+    { num: 100, value: 'name1'},
+    { num: 200, value: 'name2'},
+    { num: 20,  value: 'name3'},
+    { num: 50,  value: 'name4'}
+]
+
+let testArr = newArr.sort((x, y) => {
+    return x.num < y.num;
+});
+
+function setDom(name){
+    return <div>{name} is name</div>;
 }
-const store = createStore(reducer);
 
 
-const Counter = ({value, onIncre}) => (
+const element = (
     <div>
-        <div>{value}</div>
-        <button onClick = {onIncre}>+</button>
-        <button >-</button>
+        <div id="index" className="index" ></div>
+        hello, {formatName(user)}
+        {setDom('names')}
     </div>
 );
 
+const myString = "name,ask,news,farwy,kjks";
 
-const name = "sss";
-const render = () => {
-    ReactDom.render(
-        <Counter 
-            value = {store.getState()}
-            onIncre = {() => store.dispatch({type: 'INCREMENT', text: 'ASK'})}
-        />,
-        document.getElementById("root")
-    );
+var person1 = {
+    name: 'sara',
+    age: 22,
+    way: 'new is open the way',
+    greeting: function(){
+        console.log('ask name is ' + this.name);
+    }
 }
-render();
-store.subscribe(render);
 
+var person2 = Object.create(person1);
+console.log(person2.__proto__);
+console.log("===========");
+console.log(person2.name);
+console.log(person2.way);
 
-
+person2.greeting();
 
 
 
