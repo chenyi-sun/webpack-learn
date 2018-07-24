@@ -5,6 +5,7 @@ import mdin from "./../md/in.js";
 import mdout from "./../md/out.js";
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import timepicker from "./../components/timepicker.vue";
 
 import routes from './../public/router.js'
 let  arrs = [];
@@ -19,7 +20,6 @@ var value = {
     link2: "link2.ask.name.mark.mask",
     link3: "link3.ask.vue.miss"
 };
-
 
 //  var routers = [
 //      {
@@ -41,11 +41,11 @@ var value = {
         },
         router,
         components: {
-            
+            timepicker
         }
  });
 
 // console.log(mdin(value));
-console.log(mdout(mdin(value)));
+// console.log(mdout(mdin(value)));
 
 arrs = [...arr1, ...arr2, ...arr3];
