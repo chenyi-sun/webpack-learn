@@ -5,7 +5,7 @@
 'use strict'
 import axios from 'axios'
 const service = axios.create({
-    //  baseURL: '/wap/', // api的base_url
+    //  baseURL: 'http://www.renda.com/wap/', // api的base_url
      // timeout: 10000,                  // 请求超时时间
      transformRequest: [function (data) { //请求的参数问题
         //  console.log(data);
