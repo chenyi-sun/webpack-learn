@@ -3,9 +3,11 @@ const webpack = require("webpack");
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const init = require('./define.config');
+
 let export_build = {
      devServer: {
-        host:'127.0.0.1',
+        host: init.ipconfig,
         port: 8000,
         open: true,
         // hot: true,

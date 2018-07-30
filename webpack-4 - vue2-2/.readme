@@ -80,5 +80,7 @@ webpack 升级到4.0以后的模块配置
 基于webpack-4的基础上
 1.vue做跨域的代理配置相关资料(https://blog.csdn.net/huangpb123/article/details/78595078)
 相关资料(域名转向分发 https://www.cnblogs.com/wunan/p/6547990.html)
-2.跨域请求实现成功,但是fetch请求不成功，只有jquery的ajax请求成功了
+2.跨域请求实现成功,但是fetch请求不成功，只有jquery的ajax请求成功了,转用了axios来实现
+3.(https://segmentfault.com/a/1190000011652907)
+4.(https://www.cnblogs.com/calamus/p/8242446.html)
 <!---- 2018-7-30 ----->
