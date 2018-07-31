@@ -38,6 +38,7 @@ const router = new VueRouter({
             timepicker
         }
  });
+
 // axios.post("/wap/weixin/Wxtool/getJsapiSign",{
 //     url: "http://192.168.101.140:5002/",
 //     token: "a85c0f989ac02edab204c296a396df9e"
@@ -45,7 +46,8 @@ const router = new VueRouter({
 //     console.log(response.data);
 // });
 
- let url = "/wap/weixin/Wxtool/getJsapiSign";
+///Wxtool/getJsapiSign
+ let url = "/wap/weixin/Test/index";
  let params = {
      url: "http://192.168.101.140:5002",
      token: "a85c0f989ac02edab204c296a396df9e"
@@ -58,13 +60,13 @@ const router = new VueRouter({
 arrs = [...arr1, ...arr2, ...arr3];
 
 
-window.mySwipe = new Swipe(document.getElementById('slider'), {
-  startSlide: 2,
-  speed: 400,
-  auto: 3000,
-  continuous: true,
-  disableScroll: false,
-  stopPropagation: false,
-  callback: function(index, elem) {},
-  transitionEnd: function(index, elem) {}
-});
+// window.mySwipe = new Swipe(document.getElementById('slider'), {
+//   startSlide: 2,
+//   speed: 400,
+//   auto: 3000,
+//   continuous: true,
+//   disableScroll: false,
+//   stopPropagation: false,
+//   callback: function(index, elem) {},
+//   transitionEnd: function(index, elem) {}
+// });
