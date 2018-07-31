@@ -6,7 +6,7 @@ import mdin from "./../md/in.js";
 import mdout from "./../md/out.js";
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import timepicker from "./../components/timepicker.vue";
+import timepicker from "./../components/timepicker/index.vue";
 import 'babel-polyfill'
 import routes from './../public/router.js'
 import fetch from './../public/axios.js';
@@ -39,6 +39,7 @@ const router = new VueRouter({
         }
  });
 
+// let newArr = array("new", "ask", "askls");
 // axios.post("/wap/weixin/Wxtool/getJsapiSign",{
 //     url: "http://192.168.101.140:5002/",
 //     token: "a85c0f989ac02edab204c296a396df9e"
@@ -59,7 +60,13 @@ const router = new VueRouter({
  });
 arrs = [...arr1, ...arr2, ...arr3];
 
+let dom = document.getElementById("slider");
+dom.addEventListener('touchmove', function(e){
+    // console.log(e.touches[0].clientX);
+    console.log(e.touches[0].clientY);
+}, false);
 
+// element.removeEventListener('touchmove', events, false)
 // window.mySwipe = new Swipe(document.getElementById('slider'), {
 //   startSlide: 2,
 //   speed: 400,
